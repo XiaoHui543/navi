@@ -1,6 +1,5 @@
 # bot.py
-from flask import Flask, request, abort, render_template
-from gevent.pywsgi import WSGIServer
+import keepalive
 
 from datetime import datetime
 
@@ -162,5 +161,5 @@ if __name__ == '__main__':
     for extension in EXTENSIONS:
         bot.load_extension(extension)
 
-
+keep_alive.keep_alive()
 bot.run(settings.TOKEN)
