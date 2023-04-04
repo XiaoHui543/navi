@@ -3,4 +3,4 @@ psutil>=5.9.4
 py-cord
 python-dotenv>=0.21.0
 Flask
-gunicorn
+gevent
