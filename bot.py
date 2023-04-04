@@ -58,9 +58,9 @@ else:
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return "Hello, World!"
+#@app.route('/')
+#def index():
+#    return "Hello, World!"
 
 @bot.event
 async def on_error(event: str, *args, **kwargs) -> None:
@@ -157,8 +157,8 @@ EXTENSIONS = [
     ]
 
 if __name__ == '__main__':
-    http_server = WSGIServer(('', 5000), app)
-    http_server.serve_forever()
+#    http_server = WSGIServer(('', 5000), app)
+#    http_server.serve_forever()
     for extension in EXTENSIONS:
         bot.load_extension(extension)
 
