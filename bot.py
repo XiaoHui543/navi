@@ -155,6 +155,7 @@ EXTENSIONS = [
     ]
 
 if __name__ == '__main__':
+    app.run()
     for extension in EXTENSIONS:
         bot.load_extension(extension)
 
