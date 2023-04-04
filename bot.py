@@ -1,5 +1,7 @@
 # bot.py
 from flask import Flask, request, abort, render_template
+from gevent.pywsgi import WSGIServer
+
 from datetime import datetime
 
 import sqlite3
@@ -58,7 +60,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return "Hello, World!"
 
 @bot.event
 async def on_error(event: str, *args, **kwargs) -> None:
@@ -155,7 +157,8 @@ EXTENSIONS = [
     ]
 
 if __name__ == '__main__':
-    app.run()
+    http_server = WSGIServer(('', 5000), app)
+    http_server.serve_forever()
     for extension in EXTENSIONS:
         bot.load_extension(extension)
 
