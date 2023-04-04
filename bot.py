@@ -55,7 +55,7 @@ else:
                                   case_insensitive=True, intents=intents, allowed_mentions=allowed_mentions,
                                   owner_id=settings.OWNER_ID)
 
-app = Flask(__name__)
+#app = Flask(__name__)
 
 #@app.route('/')
 #def index():
