@@ -1,5 +1,6 @@
 # bot.py
-from flask import Flask, request, abort
+from flask import Flask, request, abort, render_template
+import requests
 from datetime import datetime
 
 import sqlite3
@@ -56,9 +57,9 @@ else:
 
 app = Flask(__name__)
 
-@app.route("/")
-def hello_world():
-    return "hello world!"
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @bot.event
 async def on_error(event: str, *args, **kwargs) -> None:
