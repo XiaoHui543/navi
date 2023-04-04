@@ -161,5 +161,5 @@ if __name__ == '__main__':
     for extension in EXTENSIONS:
         bot.load_extension(extension)
 
-keep_alive.keep_alive()
+keepalive.keep_alive()
 bot.run(settings.TOKEN)
