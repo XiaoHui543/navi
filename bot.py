@@ -1,6 +1,5 @@
 # bot.py
 from flask import Flask, request, abort, render_template
-import requests
 from datetime import datetime
 
 import sqlite3
