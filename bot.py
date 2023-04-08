@@ -157,6 +157,8 @@ EXTENSIONS = [
 if __name__ == '__main__':
 #    http_server = WSGIServer(('', 5000), app)
 #    http_server.serve_forever()
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
     for extension in EXTENSIONS:
         bot.load_extension(extension)
 
