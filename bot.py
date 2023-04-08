@@ -1,6 +1,5 @@
 # bot.py
-import keepalive
-
+from flask import Flask
 from datetime import datetime
 
 import sqlite3
@@ -55,11 +54,11 @@ else:
                                   case_insensitive=True, intents=intents, allowed_mentions=allowed_mentions,
                                   owner_id=settings.OWNER_ID)
 
-#app = Flask(__name__)
+app = Flask(__name__)
 
-#@app.route('/')
-#def index():
-#    return "Hello, World!"
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
 
 @bot.event
 async def on_error(event: str, *args, **kwargs) -> None:
@@ -161,5 +160,4 @@ if __name__ == '__main__':
     for extension in EXTENSIONS:
         bot.load_extension(extension)
 
-keepalive.keep_alive()
 bot.run(settings.TOKEN)
