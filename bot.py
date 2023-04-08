@@ -157,4 +157,5 @@ EXTENSIONS = [
 if __name__ == '__main__':
     for extension in EXTENSIONS:
         bot.load_extension(extension)
-    bot.run(settings.TOKEN)
+
+bot.run(settings.TOKEN)
