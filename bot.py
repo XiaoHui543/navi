@@ -60,6 +60,13 @@ app = Flask(__name__)
 def hello_world():
     return 'Hello, World!'
 
+def run():
+  app.run(host='0.0.0.0',port=8080)
+
+def keep_alive():  
+    t = Thread(target=run)
+    t.start()
+
 @bot.event
 async def on_error(event: str, *args, **kwargs) -> None:
     """Runs when an error outside a command appears.
@@ -155,6 +162,7 @@ EXTENSIONS = [
     ]
 
 if __name__ == '__main__':
+    keep_alive()
     for extension in EXTENSIONS:
         bot.load_extension(extension)
 
